@@ -1,0 +1,13 @@
+#container {
+    width: 1300px;
+    height: 650px;
+    background: green;
+    position: relative;
+}
+
+#box {
+    height: 50px;
+    width: 50px;
+    background: deeppink;
+    position: relative;
+}
