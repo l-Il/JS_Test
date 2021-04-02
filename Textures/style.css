@@ -1,0 +1,57 @@
+:root { /* Корень документа */
+    --pixel-size: 3; /* Переменная "Пиксель" в окне */
+}
+
+body {  /* Тело всего окна */
+    background: wheat; /* Цвет заднего фона */
+}
+
+.Character { /* Окно игрока */
+    width: calc(32px*var(--pixel-size));  /* Ширина картинки - 32 пикселя (1 спрайт) х "Переменная пикселя" */
+    height: calc(32px*var(--pixel-size));  /* Создаём анимацию */
+    overflow: hidden;   /* Скрываем остальные спрайты, оставляя на экране только один */
+    position: relative;  /* Позиция относительная */
+}
+
+.Character_spritesheet {  /* Картинка с игроком в окне игрока*/
+    animation: MoveSpritesheet 1s steps(4) infinite;  /* Анимация срабатывает через 1сек, работает в 4 шага, бесконечно повторяется */
+    width: calc(128px*var(--pixel-size));  /* Ширина картинки игрока в 4 раза больше окна игрока */
+    position: absolute;  /* Позиция абсолютная */
+}
+
+.Character_shadow {  /* Картинка с тенью в окне игрока*/
+    width: calc(32px*var(--pixel-size));  /* Ширина картинки тени */
+    height: calc(32px*var(--pixel-size));   /* Создаём анимацию */
+    position: absolute;  /* Позиция абсолютная */
+}
+
+.pixelart {  /* Служебный класс, чтобы не терять качество изображения */
+    image-rendering: pixelated;  /* Говорим браузеру "не размывать фотографии" */
+}
+
+.face_up {
+    top: calc(-64px*var(--pixel-size));  /* Берём третий ряд в спрайтах */
+}
+
+.face_down {
+    top: calc(0px*var(--pixel-size));  /* Берём первый ряд в спрайтах */
+}
+
+.face_left {
+    top: calc(-96px*var(--pixel-size));  /* Берём четвёртый ряд в спрайтах */
+}
+
+.face_right {
+    top: calc(-32px*var(--pixel-size));  /* Берём второй ряд в спрайтах */
+}
+
+@keyframes MoveSpritesheet {  /* Создаём анимацию */
+    from {  /* Начало для анимации */
+        transform: translate(0, 0);  /* Вставляем картинку  */
+    }
+    to {  /* Конец для анимации */
+        transform: translate(-100%, 0);  /* Идём по оси Х в обратную сторону7 */
+    }
+}
+
+  /*  */
